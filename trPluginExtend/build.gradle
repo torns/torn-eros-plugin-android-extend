@@ -29,9 +29,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'junit:junit:4.12'
 
+    compile project(':wxframework')
+    //compile 'com.github.bmfe:WeexErosFramework:1.0.4'
+
     compile files('libs/immersionbar-2.3.1.jar')
-
-    //compile project(':wxframework')
-    compile 'com.github.bmfe:WeexErosFramework:1.0.4'
-
 }
