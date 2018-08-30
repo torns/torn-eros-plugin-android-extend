@@ -54,7 +54,7 @@ public class StatusBarModule extends WXModule {
         if (toolBar == null) return;
 
         AbstractWeexActivity abs = (AbstractWeexActivity) RouterTracker.peekActivity();
-        ImmersionBar.with(abs).statusBarDarkFont(true).init();
+        //ImmersionBar.with(abs).statusBarDarkFont(true).init();
         StatusBarManager.setHeaderBg(routerModel, abs);
 
 
