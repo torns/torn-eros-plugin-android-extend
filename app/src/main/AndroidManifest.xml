@@ -41,7 +41,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:name="com.torn.plugindev.App"
-        android:theme="@style/AppTheme.NoActionBar"
+        android:theme="@style/MyAppTheme"
         >
 
 

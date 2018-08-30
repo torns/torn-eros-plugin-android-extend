@@ -27,6 +27,7 @@ import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
 import com.torn.extend.lib.StatusBarUtil;
+import com.torn.extend.model.StatusBarModel;
 
 /**
  * 状态栏
@@ -51,6 +52,7 @@ public class StatusBarModule extends WXModule {
 
         ParseManager parseManager = ManagerFactory.getManagerService(ParseManager.class);
         RouterModel routerModel = parseManager.parseObject(params, RouterModel.class);
+        StatusBarModel statusBarModel = parseManager.parseObject(params, StatusBarModel.class);
         routerModel.navShow = true;
 
         BaseToolBar toolBar = StatusBarModule.getToolBar();
@@ -59,18 +61,28 @@ public class StatusBarModule extends WXModule {
         AbstractWeexActivity abs = (AbstractWeexActivity) RouterTracker.peekActivity();
         StatusBarManager.setHeaderBg(routerModel, abs);
 
-        //背景颜色
-        if (routerModel.backgroundColor != null && !TextUtils.isEmpty(routerModel.backgroundColor)) {
-            StatusBarUtil.setColor(abs, Color.parseColor(routerModel.backgroundColor));
+        //字体颜色
+        if (statusBarModel.statusBarStyle == "LightContent") {
+            //白色字体
+            StatusBarUtil.setDarkMode(abs);
         } else {
-            String navBarColor = BMWXEnvironment.mPlatformConfig.getPage().getNavBarColor();
-            if (!TextUtils.isEmpty(navBarColor)) {
-                StatusBarUtil.setColor(abs, Color.parseColor(navBarColor));
-            }
+            //黑色字体
+            StatusBarUtil.setLightMode(abs);
+        }
+
+        //背景颜色
+        if (statusBarModel.backgroundColor != null && !TextUtils.isEmpty(statusBarModel.backgroundColor)) {
+            StatusBarUtil.setColor(abs, Color.parseColor(statusBarModel.backgroundColor));
+        }
+
+        //穿透
+        if (statusBarModel.through) {
+            ImmersionBar.with(abs).init();
+            //StatusBarUtil.setTransparent(abs);
         }
 
         //字体颜色
-        if (routerModel.statusBarStyle == "LightContent") {
+        if (statusBarModel.statusBarStyle == "LightContent") {
             //白色字体
             StatusBarUtil.setDarkMode(abs);
         } else {
