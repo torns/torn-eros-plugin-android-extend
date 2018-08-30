@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.weex.plugin:plugin-loader-1.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/plugin-loader-1.0.0.aar/e5c6e2a9fa82f176d45d094af4bb4951/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/plugin-loader-1.0.0.aar/e5c6e2a9fa82f176d45d094af4bb4951/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.weex.plugin/plugin-loader/1.0.0/eedabe87a89d748a4d81f23b77a9b7537ffee8c6/plugin-loader-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
