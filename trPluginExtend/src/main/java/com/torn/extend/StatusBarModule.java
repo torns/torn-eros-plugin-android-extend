@@ -1,11 +1,13 @@
 package com.torn.extend;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.alibaba.weex.plugin.annotation.WeexModule;
+import com.benmu.framework.BMWXEnvironment;
 import com.benmu.framework.activity.AbstractWeexActivity;
 import com.benmu.framework.adapter.router.RouterTracker;
 import com.benmu.framework.constant.WXEventCenter;
@@ -24,6 +26,7 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
+import com.torn.extend.lib.StatusBarUtil;
 
 /**
  * 状态栏
@@ -54,11 +57,25 @@ public class StatusBarModule extends WXModule {
         if (toolBar == null) return;
 
         AbstractWeexActivity abs = (AbstractWeexActivity) RouterTracker.peekActivity();
-        //ImmersionBar.with(abs).statusBarDarkFont(true).init();
         StatusBarManager.setHeaderBg(routerModel, abs);
 
-
-        // Helper.statusBarLightMode(activity);
+        //字体颜色
+        if (routerModel.statusBarStyle == "LightContent") {
+            //白色字体
+            StatusBarUtil.setDarkMode(abs);
+        } else {
+            //黑色字体
+            StatusBarUtil.setLightMode(abs);
+        }
+        //背景颜色
+        if (routerModel.backgroundColor != null && !TextUtils.isEmpty(routerModel.backgroundColor)) {
+            StatusBarUtil.setColor(abs, Color.parseColor(routerModel.backgroundColor));
+        } else {
+            String navBarColor = BMWXEnvironment.mPlatformConfig.getPage().getNavBarColor();
+            if (!TextUtils.isEmpty(navBarColor)) {
+                StatusBarUtil.setColor(abs, Color.parseColor(navBarColor));
+            }
+        }
     }
 
     /**
