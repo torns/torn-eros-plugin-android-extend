@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pluginExtend/pluginExtend.iml" filepath="$PROJECT_DIR$/pluginExtend/pluginExtend.iml" />
       <module fileurl="file://$PROJECT_DIR$/torn-eros-plugin-android-extend.iml" filepath="$PROJECT_DIR$/torn-eros-plugin-android-extend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trPluginExtend/trPluginExtend.iml" filepath="$PROJECT_DIR$/trPluginExtend/trPluginExtend.iml" />
     </modules>
   </component>
 </project>
