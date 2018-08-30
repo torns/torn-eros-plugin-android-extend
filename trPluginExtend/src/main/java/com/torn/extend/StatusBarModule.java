@@ -59,14 +59,6 @@ public class StatusBarModule extends WXModule {
         AbstractWeexActivity abs = (AbstractWeexActivity) RouterTracker.peekActivity();
         StatusBarManager.setHeaderBg(routerModel, abs);
 
-        //字体颜色
-        if (routerModel.statusBarStyle == "LightContent") {
-            //白色字体
-            StatusBarUtil.setDarkMode(abs);
-        } else {
-            //黑色字体
-            StatusBarUtil.setLightMode(abs);
-        }
         //背景颜色
         if (routerModel.backgroundColor != null && !TextUtils.isEmpty(routerModel.backgroundColor)) {
             StatusBarUtil.setColor(abs, Color.parseColor(routerModel.backgroundColor));
@@ -75,6 +67,15 @@ public class StatusBarModule extends WXModule {
             if (!TextUtils.isEmpty(navBarColor)) {
                 StatusBarUtil.setColor(abs, Color.parseColor(navBarColor));
             }
+        }
+
+        //字体颜色
+        if (routerModel.statusBarStyle == "LightContent") {
+            //白色字体
+            StatusBarUtil.setDarkMode(abs);
+        } else {
+            //黑色字体
+            StatusBarUtil.setLightMode(abs);
         }
     }
 
